@@ -25,12 +25,9 @@ CONTRATOS:
         pré-condições:
             - existe lr:ListaRegioes != null 
             - existe r:Região pertencente a lr; 
-            ---(é necessário criar a lista no modelo de iteração?)---
             - existe v:Voluntario corrente associado a a:Alojamento corrente.
         pós-condições:
             - r:Regiao é associado a a:Alojamento tal que a.regiao = r:
-            ---(o catalogo de regioes supostamente é, por exemplo, todos os distritos de portugal. Assim, a regiao indicada precisa
-            coincidir com uma que esteja na lista de regioes)---
 
     indicaDescItem(desc)
         pré-condições:
