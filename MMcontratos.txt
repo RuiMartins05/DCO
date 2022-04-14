@@ -13,31 +13,36 @@ CONTRATOS:
         pré-condições:
             - N/A
         pós-condições:
-            - v:Voluntario está autenticado
+            - v_corrente:Voluntario está autenticado
 
     indicaNumPessoas(num)
         pré-condições:
-            - v:Voluntario corrente pretende oferecer a:Alojamento = True.
+            - v_corrente:Voluntario está autenticado
+            - v_corrente:Voluntario corrente pretende oferecer a:Alojamento = True.
         pós-condições:
-            - criado a:Alojamento associado a v corrente tal que a.num = num.
+            - criado a:Alojamento associado a v_corrente tal que a.num = num.
 
     indicaRegiao(regiao)
         pré-condições:
+            - v_corrente:Voluntario está autenticado
             - existe lr:ListaRegioes != null 
             - existe r:Região pertencente a lr; 
-            - existe v:Voluntario corrente associado a a:Alojamento corrente.
+            - existe v_corrente:Voluntario corrente associado a a:Alojamento corrente.
         pós-condições:
             - r:Regiao é associado a a:Alojamento tal que a.regiao = r:
 
     indicaDescItem(desc)
         pré-condições:
-            - v:Voluntario corrente pretende oferecer i:Item = True.
+            - v_corrente:Voluntario está autenticado
+            - v_corrente:Voluntario corrente pretende oferecer i:Item = True.
         pós-condições:
-            - criado i:Item associado a v corrente tal que i.desc = desc.
+            - criado i:Item associado a v_corrente corrente tal que i.desc = desc.
 
     indicaCódigo (codigo)
         pré-condições:
-            - v:Voluntario corrente associado a a:Alojamento corrente || v:Voluntario corrente associado a i:Item corrente;
+            - v_corrente:Voluntario está autenticado
+            - v_corrente:Voluntario corrente associado a a:Alojamento corrente ||
+                 v_corrente:Voluntario corrente associado a i:Item corrente;
             - existe s:Sms enviado para v:Voluntario corrente.
         pos-condições:
             - retornado s.codigo = codigo.
