@@ -1,0 +1,41 @@
+Caso de Uso: Procurar Ajuda
+Ator Principal: Migrante
+
+Pré-Condições: N/A
+
+Pós-Condições: Registadas ajudas no sistema e sms enviado aos voluntarios das ajudas.
+
+--
+
+CONTRATOS: 
+
+    op: registaIndividual(nome, contacto)
+        pré-condições:
+            - N/A
+        pós-condições:
+            - é criado m:Migrante;
+            - e m.nome = nome e m.contacto = contacto. 
+
+    op: registaFamilia(num)
+        pré-condições:
+            - N/A
+        pós-condições:
+            - é criado f:Familia; 
+            - e f.numPessoas = num.
+
+    op: indicaCabecaFam(nome, contacto)
+        pré-condições:
+            - existe f:Familia corrente.
+        pós-condições:
+            - é criado cf:CabecaFamilia;
+            - cf refere-se a migrante;
+            - cf.nome = nome e cf.contacto = contacto; 
+            - cf é associado a f:Familia.
+
+    op: indicaMembro(nome)
+        pré-condições:
+            - existe f:Familia corrente.
+        pós-condições:
+            - é criado membroFam:Migrante;
+            - membroFam.nome = nome.
+

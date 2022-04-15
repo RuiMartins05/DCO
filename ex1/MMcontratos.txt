@@ -3,44 +3,44 @@ Ator Principal: Voluntario
 
 Pré-Condições: N/A
 
-Pós-Condições: a ajuda é confirmada através do envio do código associado ao SMS
+Pós-Condições: a ajuda é confirmada através do envio do código associado ao SMS.
 
 --
 
 CONTRATOS: 
 
-    identificaVoluntario(contacto)
+    op: identificaVoluntario(contacto)
         pré-condições:
             - N/A
         pós-condições:
-            - v_corrente:Voluntario está autenticado
+            - v_corrente:Voluntario está autenticado.
 
-    indicaNumPessoas(num)
+    op: indicaNumPessoas(num)
         pré-condições:
-            - v_corrente:Voluntario está autenticado
+            - v_corrente:Voluntario está autenticado;
             - v_corrente:Voluntario corrente pretende oferecer a:Alojamento = True.
         pós-condições:
             - criado a:Alojamento associado a v_corrente tal que a.num = num.
 
-    indicaRegiao(regiao)
+    op: indicaRegiao(regiao)
         pré-condições:
-            - v_corrente:Voluntario está autenticado
-            - existe lr:ListaRegioes != null 
+            - v_corrente:Voluntario está autenticado;
+            - existe lr:ListaRegioes != null; 
             - existe r:Região pertencente a lr; 
             - existe v_corrente:Voluntario corrente associado a a:Alojamento corrente.
         pós-condições:
-            - r:Regiao é associado a a:Alojamento tal que a.regiao = r:
+            - r:Regiao é associado a a:Alojamento tal que a.regiao = r.
 
-    indicaDescItem(desc)
+    op: indicaDescItem(desc)
         pré-condições:
-            - v_corrente:Voluntario está autenticado
+            - v_corrente:Voluntario está autenticado;
             - v_corrente:Voluntario corrente pretende oferecer i:Item = True.
         pós-condições:
             - criado i:Item associado a v_corrente corrente tal que i.desc = desc.
 
-    indicaCódigo (codigo)
+    op: indicaCódigo (codigo)
         pré-condições:
-            - v_corrente:Voluntario está autenticado
+            - v_corrente:Voluntario está autenticado;
             - v_corrente:Voluntario corrente associado a a:Alojamento corrente ||
                  v_corrente:Voluntario corrente associado a i:Item corrente;
             - existe s:Sms enviado para v:Voluntario corrente.
