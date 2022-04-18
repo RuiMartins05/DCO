@@ -18,7 +18,7 @@ CONTRATOS:
 
     op: registaFamilia(num)
         pré-condições:
-            - num >= 2;
+            - num > 1;
         pós-condições:
             - seja cc:Migrante corrente;
             - cc.numPessoas = num;
@@ -59,20 +59,20 @@ CONTRATOS:
         pós-condições:
             - seja a:Ajuda tal que a:Ajuda pertence a la:ListaAjudas.
 ---------------------------------
-    op: registaAjuda(a)
+    op: registaAjuda(ajuda)
         pré-condições:
             - existe m ou cc corrente;
-            - existe a:Ajuda corrente.
+            - existe ajuda:Ajuda corrente.
             - existe ls:ListaSelecionada corrente
         pós-condições:
-            - a:Ajuda registada em ls:ListaSelecionada
+            - ajuda:Ajuda registada em ls:ListaSelecionada
 
     op: confirmarAjudas(ls)
         pré-condições:
             - existe m ou cc corrente;
             - criada (lc:ListaCorrente) if (!exists(lc)). 
         pós-condições:
-            -
+            - N/A
 
     op: registaConfirmacao(ls)
         pré-condições:
@@ -106,13 +106,13 @@ private class Migrante {
         private registaFamilia(num) {
             this.numPessoas = num;
             this.fam = new String[num];
-            this.fam[counter] = this.nome;
-            counter++;
         }
 
         private indicaCabecaCasal(nome, contacto) {
             this.nome = nome;
             this.contacto = contacto;
+            this.fam[counter] = this.nome;
+            counter++;
         }
 
         private indicaMembro(nome) {
