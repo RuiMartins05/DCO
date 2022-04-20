@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="rpceYV2ZZl-HY-qTrpA5" name="Page-1">
-        <mxGraphModel dx="581" dy="366" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1444" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -220,13 +220,13 @@
                 <mxCell id="66" value="registaConfirmacao(ls)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="430" y="820" width="130" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="67" value="" style="shape=stencil(ZY9RDoQgDERP019T6RFcvYeJuDQiGETdvf1CapSsf9NpXzsFalbTLxoUrjH4SR88RAP0AqXYGR04JgXUAjWjD/od/OYGqZc+T2Y1+z1v+AhXI1aIGVP4FesyOgEsuwJ4jBcbTiCJ+9zI1krasv8fL1nyGrU/);fillColor=none;" vertex="1" parent="1">
+                <mxCell id="67" value="" style="shape=stencil(ZY9RDoQgDERP019T6RFcvYeJuDQiGETdvf1CapSsf9NpXzsFalbTLxoUrjH4SR88RAP0AqXYGR04JgXUAjWjD/od/OYGqZc+T2Y1+z1v+AhXI1aIGVP4FesyOgEsuwJ4jBcbTiCJ+9zI1krasv8fL1nyGrU/);fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="690.1111450195312" y="100.33334350585938" width="0.22222900390625" height="0.44443766276037877" as="geometry"/>
                 </mxCell>
-                <mxCell id="68" value=": Lista Ajudas Confirmadas" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="68" value=": Lista Ajudas Confirmadas" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="717" y="120" width="110" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="69" value="" style="endArrow=none;html=1;entryX=0.529;entryY=1.15;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                <mxCell id="69" value="" style="endArrow=none;html=1;entryX=0.529;entryY=1.15;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="777" y="870" as="sourcePoint"/>
                         <mxPoint x="777" y="160.0000000000001" as="targetPoint"/>

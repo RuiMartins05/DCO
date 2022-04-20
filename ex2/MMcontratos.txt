@@ -1,4 +1,4 @@
-Caso de Uso: Procurar Ajuda
+.2Caso de Uso: Procurar Ajuda
 Ator Principal: Migrante
 
 Pré-Condições: N/A
@@ -58,7 +58,7 @@ CONTRATOS:
             - criada (ls:ListaSelecionada) if (!exists(ls)). 
         pós-condições:
             - seja a:Ajuda tal que a:Ajuda pertence a la:ListaAjudas.
----------------------------------
+
     op: registaAjuda(ajuda)
         pré-condições:
             - existe m ou cc corrente;
@@ -80,45 +80,12 @@ CONTRATOS:
             - existe lc:ListaConfirmada corrente 
         pós-condições:
             - lc:ListaConfirmada = ls:ListaSelecionada
----------------------------------
+
+- Extensão:
+
     op: pretendeNotificacao(regiao)
         pré-condições:
             - existe m ou cc corrente;
-            - existe lr:ListaRegioes vazia.
+            - existe lr:ListaRegioes empty.
         pós-condições:
-            - N/A
----------------------------------
-
-lis<Migrante> listMigr;
-
-private class Migrante {
-        string nome;
-        string contacto;
-        int numPessoas;
-        String[] fam;
-        int counter = 0;
-
-        public Migrante(nome, contacto) {
-            this.nome = nome;
-            this.contacto = contacto;
-        }
-
-        private registaFamilia(num) {
-            this.numPessoas = num;
-            this.fam = new String[num];
-        }
-
-        private indicaCabecaCasal(nome, contacto) {
-            this.nome = nome;
-            this.contacto = contacto;
-            this.fam[counter] = this.nome;
-            counter++;
-        }
-
-        private indicaMembro(nome) {
-            if (this.fam.size() < this.numPessoas) {
-                this.fam[counter] = nome;
-                counter++;
-            }
-        }
-}
+            - lr:ListaRegioes not empty.
