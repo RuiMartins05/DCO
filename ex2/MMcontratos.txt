@@ -20,32 +20,32 @@ CONTRATOS:
         pré-condições:
             - num > 1;
         pós-condições:
-            - seja cc:Migrante corrente;
-            - cc.numPessoas = num;
+            - seja m:Migrante corrente;
+            - m.numPessoasFam = num;
             - é criado fam:String[num]. 
 
     op: indicaCabecaCasal(nome, contacto)
         pré-condições:
-            - existe cc corrente.
+            - existe m corrente.
         pós-condições:
-            - cc.nome = nome e cc.contacto = contacto.
+            - m.nome = nome e m.contacto = contacto.
             
     op: indicaMembro(nome)
         pré-condições:
-            - existe cc corrente.
+            - existe m corrente.
         pós-condições:
             - adicionado nome a fam.
 
     op: getListaRegioes()
         pré-condições:
-            - existe m ou cc corrente;
+            - existe m corrente;
             - existe lr:ListaRegioes.
         pós-condições:
             - N/A.
 
     op: indicaRegiao(regiao)
         pré-condições:
-            - existe m ou cc corrente;
+            - existe m corrente;
             - existe lr:ListaRegioes;
             - la:ListaAjudas associada a regiao.
         pós-condições:
@@ -53,39 +53,45 @@ CONTRATOS:
 
     op: indicaAjuda(la)
         pré-condições:
-            - existe m ou cc corrente;
+            - existe m corrente;
             - existe la:ListaAjudas;
-            - criada (ls:ListaSelecionada) if (!exists(ls)). 
+            - criada (ajudasSelecionadas:list<Ajuda>) se ajudasSelecionadas == null. 
         pós-condições:
-            - seja a:Ajuda tal que a:Ajuda pertence a la:ListaAjudas.
+            - seja a:Ajuda tal que a:Ajuda pertence a la:ListaAjudas,
+                 m.ajudaCorrente = a 
 
-    op: registaAjuda(ajuda)
+    op: registaAjuda()
         pré-condições:
-            - existe m ou cc corrente;
-            - existe ajuda:Ajuda corrente.
-            - existe ls:ListaSelecionada corrente
+            - existe m corrente;
+            - existe ajudaCorrente;
+            - existe ajudasSelecionadas:list<Ajuda> corrente.
         pós-condições:
-            - ajuda:Ajuda registada em ls:ListaSelecionada
+            - ajudaCorrente:Ajuda registada em ajudasSelecionadas:list<Ajuda>.
 
-    op: confirmarAjudas(ls)
+    op: confirmarAjudas()
         pré-condições:
-            - existe m ou cc corrente;
-            - criada (lc:ListaCorrente) if (!exists(lc)). 
+            - existe m corrente;
+            - existe ajudasSelecionadas:list<Ajuda> corrente.
         pós-condições:
-            - N/A
+            - pretendeConfirmar = true.
 
-    op: registaConfirmacao(ls)
+    op: registaConfirmacao()
         pré-condições:
-            - existe m ou cc corrente;
-            - existe lc:ListaConfirmada corrente 
+            - existe m corrente;
+            - existe ajudasSelecionadas:list<Ajuda> corrente.
         pós-condições:
-            - lc:ListaConfirmada = ls:ListaSelecionada
+            - toda a listaAjuda[i] que exista em ajudasSelecionadas
+                tem listaAjuda[i].migranteAtual = m 
 
-- Extensão:
+- Extensão 5a:
 
     op: pretendeNotificacao(regiao)
         pré-condições:
-            - existe m ou cc corrente;
+            - existe m corrente;
             - existe lr:ListaRegioes empty.
+            - existe pretendeNotificacao:list<Migrante>
         pós-condições:
-            - lr:ListaRegioes not empty.
+            - migrante associado a regiao
+            - adicionado migrante a pretendeNotificacao.
+
+

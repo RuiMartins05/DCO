@@ -2,3 +2,4 @@ controller - no handler
 expert - classe conhecedora de alguma informação
 high cohesion - significa as tarefas relacionadas com uma classe estao nessa classe (centralização)
 low coupling - minimizar as dependencias 
+create
