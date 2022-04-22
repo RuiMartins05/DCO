@@ -1,4 +1,4 @@
-.2Caso de Uso: Procurar Ajuda
+2º Caso de Uso: Procurar Ajuda
 Ator Principal: Migrante
 
 Pré-Condições: N/A
@@ -13,39 +13,39 @@ CONTRATOS:
         pré-condições:
             - N/A.
         pós-condições:
-            - seja m:Migrante tal que m.nome = nome e
-                 m.contacto = contacto. 
+            - m:Migrante esta autenticado e é corrente;
+            - m.nome = nome e m.contacto = contacto. 
 
     op: registaFamilia(num)
         pré-condições:
             - num > 1;
         pós-condições:
-            - seja m:Migrante corrente;
+            - m:Migrante esta autenticado e é corrente;
             - m.numPessoasFam = num;
             - é criado fam:String[num]. 
 
     op: indicaCabecaCasal(nome, contacto)
         pré-condições:
-            - existe m corrente.
+            - m:Migrante esta autenticado.
         pós-condições:
             - m.nome = nome e m.contacto = contacto.
             
     op: indicaMembro(nome)
         pré-condições:
-            - existe m corrente.
+            - m:Migrante esta autenticado.
         pós-condições:
-            - adicionado nome a fam.
+            - nome é adicionado a fam.
 
     op: getListaRegioes()
         pré-condições:
-            - existe m corrente;
+            - m:Migrante esta autenticado;
             - existe lr:ListaRegioes.
         pós-condições:
             - N/A.
 
     op: indicaRegiao(regiao)
         pré-condições:
-            - existe m corrente;
+            - m:Migrante esta autenticado;
             - existe lr:ListaRegioes;
             - la:ListaAjudas associada a regiao.
         pós-condições:
@@ -53,45 +53,28 @@ CONTRATOS:
 
     op: indicaAjuda(la)
         pré-condições:
-            - existe m corrente;
+            - m:Migrante esta autenticado;
             - existe la:ListaAjudas;
             - criada (ajudasSelecionadas:list<Ajuda>) se ajudasSelecionadas == null. 
         pós-condições:
-            - seja a:Ajuda tal que a:Ajuda pertence a la:ListaAjudas,
-                 m.ajudaCorrente = a 
-
-    op: registaAjuda()
-        pré-condições:
-            - existe m corrente;
-            - existe ajudaCorrente;
-            - existe ajudasSelecionadas:list<Ajuda> corrente.
-        pós-condições:
-            - ajudaCorrente:Ajuda registada em ajudasSelecionadas:list<Ajuda>.
+            - seja a:Ajuda tal que a:Ajuda pertence a la:ListaAjudas, m.ajudaCorrente = a.
 
     op: confirmarAjudas()
         pré-condições:
-            - existe m corrente;
+            - m:Migrante esta autenticado;
             - existe ajudasSelecionadas:list<Ajuda> corrente.
         pós-condições:
             - pretendeConfirmar = true.
-
-    op: registaConfirmacao()
-        pré-condições:
-            - existe m corrente;
-            - existe ajudasSelecionadas:list<Ajuda> corrente.
-        pós-condições:
-            - toda a listaAjuda[i] que exista em ajudasSelecionadas
-                tem listaAjuda[i].migranteAtual = m 
 
 - Extensão 5a:
 
     op: pretendeNotificacao(regiao)
         pré-condições:
-            - existe m corrente;
-            - existe lr:ListaRegioes empty.
-            - existe pretendeNotificacao:list<Migrante>
+            - m:Migrante esta autenticado;
+            - existe lr:ListaRegioes empty;
+            - existe pretendeNotificacao:list<Migrante>.
         pós-condições:
-            - migrante associado a regiao
+            - migrante associado a regiao;
             - adicionado migrante a pretendeNotificacao.
 
 

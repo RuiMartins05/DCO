@@ -1,7 +1,7 @@
 Caso de Uso: Registar Ajuda
 Ator Principal: Voluntario
 
-Pré-Condições: N/A
+Pré-Condições: N/A.
 
 Pós-Condições: a ajuda é confirmada através do envio do código associado ao SMS.
 
@@ -11,39 +11,40 @@ CONTRATOS:
 
     op: identificaVoluntario(contacto)
         pré-condições:
-            - N/A
+            - N/A.
         pós-condições:
-            - v:Voluntario está autenticado e é corrente.
+            - v:Voluntario está autenticado e é corrente;
+            - v.contacto = contacto.
 
     op: indicaNumPessoas(num)
         pré-condições:
             - v:Voluntario está autenticado;
-            - v:Voluntario corrente pretende oferecer a:Ajuda.
+            - v:Voluntario corrente pretende oferecer um alojamento a:Ajuda.
         pós-condições:
-            - criado a:Ajuda associado a v tal que a.num = num e voluntarioDono = v.
+            - criado a:Ajuda associado a v corrente tal que a.num = num
+            - voluntarioDono = v.
 
     op: indicaRegiao(regiao)
         pré-condições:
             - v:Voluntario está autenticado;
             - existe lr:List<Regiao> != null; 
-            - existe r:Região pertencente a lr; 
-            - existe v:Voluntario corrente associado a a:Alojamento corrente.
+            - regiao pertence a lr; 
+            - existe v:Voluntario corrente associado a a:Ajuda corrente.
         pós-condições:
-            - r:Regiao é associado a a:Alojamento tal que a.regiao = r.
+            - a.regiao = regiao.
 
     op: indicaDescItem(desc)
         pré-condições:
             - v:Voluntario está autenticado;
-            - v:Voluntario corrente pretende oferecer i:Ajuda.
+            - v:Voluntario corrente pretende oferecer um item i:Ajuda.
         pós-condições:
             - criado i:Ajuda associado a v corrente tal que i.descricao = desc.
 
     op: indicaCódigo (codigo)
         pré-condições:
             - v:Voluntario está autenticado;
-            - v:Voluntario corrente associado a a:Ajuda corrente ||
-                 v:Voluntario corrente associado a i:Ajuda corrente;
+            - v:Voluntario corrente associado a a:Ajuda corrente || v:Voluntario corrente associado a i:Ajuda corrente;
             - existe s:SMS enviado para v:Voluntario corrente;
             - existe codigoSMS associado a codigo recebido.
         pos-condições:
-            - indicado ao sistema codigoSMS.
+            - codigoSMS é indicado ao sistema.
